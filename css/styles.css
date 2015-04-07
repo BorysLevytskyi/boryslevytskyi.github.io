@@ -1,10 +1,18 @@
-body { font-family: Helvetica; margin: 100px auto; width: 800px; font-size: 0.9em }
+body { font-family: Helvetica;  font-size: 0.9em; margin: 0px; padding: 0px }
+.center { margin: 0px auto; width: 800px; }
 
 h1 { margin-bottom: 5px; }
 h3 { border-bottom: dotted 1px #878787; }
 
-.section { margin-top: 50px}
-.section .item { margin-bottom: 50px }
+.header { margin-top: 50px; margin-bottom: 50px }
+
+.section .item { margin-top: 50px }
+
+.block { padding: 30px 0; }
+.block h3 { margin: 0px; }
+
+
+.highlighted { background: ghostwhite; }
 
 a { color: #4b78ae }
 
