@@ -1,7 +1,12 @@
-body { font-family: Helvetica, Verdana; margin: 100px auto; width: 800px }
+body { font-family: Helvetica, Verdana; margin: 100px auto; width: 800px; font-size: 0.9em }
 
-h1 { margin-bottom: 0px; }
-h3 { border-bottom: dotted 1px #121212}
+h1 { margin-bottom: 5px; }
+h3 { border-bottom: dotted 1px #121212; }
 
 .section { margin-top: 50px}
 .section .item { margin-bottom: 50px }
+
+a { color: #4b78ae }
+
+a:visited { color: #508cc6
+}
