@@ -1,15 +1,17 @@
-body { font-family: Helvetica;  font-size: 0.9em; margin: 0px; padding: 0px }
-.center { margin: 0px auto; width: 800px; }
+body { font-family: Helvetica;  font-size: 0.9em; margin: 0; padding: 0 }
+.center { margin: 0 auto; width: 800px; }
 
 h1 { margin-bottom: 5px; }
 h3 { border-bottom: dotted 1px #878787; }
 
-.header { margin-top: 50px; margin-bottom: 50px }
+header { background: #222; color: white }
+header .center { padding: 100px 50px}
+header a, header a:visited { color: white; }
 
 .section .item { margin-top: 50px }
 
 .block { padding: 30px 0; }
-.block h3 { margin: 0px; }
+.block h3 { margin: 0; }
 
 
 .highlighted { background: ghostwhite; }
