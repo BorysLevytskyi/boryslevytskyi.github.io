@@ -5,7 +5,7 @@ h1 { margin-bottom: 5px; }
 h3 { border-bottom: dotted 1px #878787; margin-bottom: 30px }
 
 header { background: #222; color: white }
-header .center { padding: 80px 50px}
+header .center { padding: 40px 50px}
 header a, header a:visited { color: white; margin-right: 15px; }
 header .links { margin-top: 25px; }
 
