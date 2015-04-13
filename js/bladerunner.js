@@ -8,7 +8,7 @@
 
         var char = String.fromCharCode(e.charCode);
 
-        if(char.toLowerCase() == 'y' && isOn) {
+        if(e.keyCode == 13 && isOn) {
             stop();
             return;
         }
@@ -48,28 +48,38 @@
     }
 
     var consoleText = [
-        { text: "> search --name Borys Levytskyi\n" +
+        { text: "Initializing|.|.|.\n" +
+        "Initialization completed.\n" +
+        "\n" +
+        ">| bladerunner|\n" +
+        "\n" +
+        "Loading bladerunner executable. Please wait|.|.|.\n" +
+        "Loading completed\n|" +
+        "\n" +
+        "Welcome to blade runner console.\n" +
+        "\n|" +
+        "> search --name Borys Levytskyi\n" +
         "Searching|.|.|.\n" +
-        "Search completed\n|" +
-        "Results found: 1\n|" +
+        "Search completed. Results found: 1\n|" +
         "\n|" +
         "> show --about\n" +
         "\n|" +
-        "Borys Levytskyi: Full Stack .NET Developer|\n" +
-        "Works in Epam Systems as Senior .NET developer\n" +
+        "Name: Borys Levytskyi\n" +
+        "Gender: Male\n" +
+        "Location: Kiev, Ukraine\n" +
+        "Occupation: Works in Epam Systems as Senior .NET developer\n" +
         "\n" +
         "> show --projects\n" +
         "\n|" +
-        "\n|" +
         "Projects:\n|" +
         "\n" +
-        "http://bitwisecmd.com\n" +
+        "- http://bitwisecmd.com\n" +
         "Helps better understand how bitwise operations are performed by displaying bytes in a way you can actually see what is going on there during AND, OR, XOR or shift operations.\n" +
         "\n" +
-        "CommandFramework\n" +
-        ".NET Library that allows to create rich command line interface in a declarative way using attributes.\n" +
+        "- CommandFramework\n" +
+        "Nuget package. NET Library that allows to create rich command line interface in a declarative way using attributes.\n" +
         "\n" +
-        "To exit blade runner console press Y" +
+        "To exit blade runner console press [Enter]" +
         "^" }
     ];
 
