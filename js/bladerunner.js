@@ -47,16 +47,16 @@
         audio.pause();
     }
 
-    var consoleText = [
-        { text: "Initializing|.|.|.\n" +
+    var consoleText =
+        "Initializing shell|.|.|.\n" +
         "Initialization completed.\n" +
         "\n" +
-        ">| bladerunner|\n" +
+        "> bladerunner|\n" +
         "\n" +
-        "Loading bladerunner executable. Please wait|.|.|.\n" +
-        "Loading completed\n|" +
+        "Connecting to server|.|.|.\n" +
+        "Connected.\n" +
         "\n" +
-        "Welcome to blade runner console.\n" +
+        "Ready.\n" +
         "\n|" +
         "> search --name Borys Levytskyi\n" +
         "Searching|.|.|.\n" +
@@ -79,18 +79,16 @@
         "- CommandFramework\n" +
         "Nuget package. NET Library that allows to create rich command line interface in a declarative way using attributes.\n" +
         "\n" +
-        "To exit blade runner console press [Enter]" +
-        "^" }
-    ];
+        "Press [Enter] to exit.\n" +
+        "^";
+
 
     function startConsole() {
         var c = document.querySelector('.console');
-        for(var i=0; i<consoleText.length; i++) {
-            var el = document.createElement('p');
-            c.appendChild(el);
-            var text = [];
-            typeText(consoleText[i].text, el);
-        }
+        var el = document.createElement('p');
+        c.appendChild(el);
+        var text = [];
+        typeText(consoleText, el);
     }
 
     function typeText(text, el) {
