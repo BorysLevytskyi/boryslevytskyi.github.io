@@ -48,30 +48,35 @@
     }
 
     var consoleText =
+        "*** Blade runner mode activated ***\n" +
+        "\n" +
+        "" +
         "Initializing shell|.|.|.\n" +
         "Initialization completed.\n" +
-        "\n" +
-        "> bladerunner|\n" +
         "\n" +
         "Connecting to server|.|.|.\n" +
         "Connected.\n" +
         "\n" +
         "Ready.\n" +
-        "\n|" +
-        "> search --name Borys Levytskyi\n" +
+        "\n" +
+        ">search --name Borys Levytskyi\n" +
         "Searching|.|.|.\n" +
-        "Search completed. Results found: 1\n|" +
-        "\n|" +
-        "> show --about\n" +
+        "Search completed. Results found: 1\n" +
+        "\n" +
+        ">show --about\n" +
         "\n|" +
         "Name: Borys Levytskyi\n" +
         "Gender: Male\n" +
         "Location: Kiev, Ukraine\n" +
         "Occupation: Works in Epam Systems as Senior .NET developer\n" +
+        "GitHub: https://github.com/BorysLevytskyi\n" +
+        "LinkedIn Profile: https://www.linkedin.com/in/blevitsky\n" +
         "\n" +
-        "> show --projects\n" +
-        "\n|" +
-        "Projects:\n|" +
+        "Ready.\n" +
+        "\n" +
+        ">show --projects\n" +
+        "\n" +
+        "Projects:\n" +
         "\n" +
         "- http://bitwisecmd.com\n" +
         "Helps better understand how bitwise operations are performed by displaying bytes in a way you can actually see what is going on there during AND, OR, XOR or shift operations.\n" +
@@ -79,8 +84,7 @@
         "- CommandFramework\n" +
         "Nuget package. NET Library that allows to create rich command line interface in a declarative way using attributes.\n" +
         "\n" +
-        "Press [Enter] to exit.\n" +
-        "^";
+        "Press [Enter] to exit.^";
 
 
     function startConsole() {
@@ -114,9 +118,9 @@
                     consoleSpeed = 10;
                     break;
                 case '>':
-                    timeout += 1000;
+                    timeout += 500;
                     consoleSpeed = 100;
-                    text = symbol;
+                    text = '> ';
                     break;
                 case '|':
                     timeout += 1000;
