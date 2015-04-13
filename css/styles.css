@@ -34,7 +34,7 @@ img.icon { width: 16px; height: 16px; vertical-align: middle}
     width: 400px;
     font-family: monospace;
     color: #3feede;
-    position: absolute; left: 10px; top: 10px;
+    position: absolute; left: 10px; bottom: 10px;
 }
 
 .photo {

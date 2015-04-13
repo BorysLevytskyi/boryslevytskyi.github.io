@@ -2,17 +2,16 @@
     var audio = document.getElementById('audio');
     var cover = document.querySelector('.bladerunner');
     var photo = document.querySelector('.bladerunner .photo');
-    var isOn = false;
-
-    window.addEventListener('click', function() {
-        if(isOn) {
-            stop();
-        }
-    });
+    var isOn = false, consoleSpeed = 10;
 
     window.addEventListener('keypress', function (e) {
 
         var char = String.fromCharCode(e.charCode);
+
+        if(char.toLowerCase() == 'y' && isOn) {
+            stop();
+            return;
+        }
 
         if(char.toLocaleLowerCase() == 'b') {
             bladeRunner();
@@ -50,26 +49,28 @@
 
     var consoleText = [
         { text: "> search --name Borys Levytskyi\n" +
-        "Searhing|.|.|.\n" +
+        "Searching|.|.|.\n" +
         "Search completed\n|" +
         "Results found: 1\n|" +
         "\n|" +
         "> show --about\n" +
         "\n|" +
-        "Borys Levytsky: Full Stack .NET Developer|\n" +
+        "Borys Levytskyi: Full Stack .NET Developer|\n" +
         "Works in Epam Systems as Senior .NET developer\n" +
-        "> show --project\n" +
+        "\n" +
+        "> show --projects\n" +
         "\n|" +
         "\n|" +
         "Projects:\n|" +
         "\n" +
-        "http://biwtwisecmd.com\n" +
-        "Helps better understand how bitwise operations are pefromed by displaying bytes in a way you can actually see what is going on there during AND, OR, XOR or shift operations.\n" +
+        "http://bitwisecmd.com\n" +
+        "Helps better understand how bitwise operations are performed by displaying bytes in a way you can actually see what is going on there during AND, OR, XOR or shift operations.\n" +
         "\n" +
         "CommandFramework\n" +
         ".NET Library that allows to create rich command line interface in a declarative way using attributes.\n" +
         "\n" +
-        "> clear^" }
+        "To exit blade runner console press Y" +
+        "^" }
     ];
 
     function startConsole() {
@@ -98,10 +99,16 @@
 
     function type(symbol, el, chain) {
         return function (){
-            var text = '', timeout = 50;
+            var text = '', timeout = consoleSpeed;
             switch (symbol) {
                 case '\n':
                     text = "<br/>";
+                    consoleSpeed = 10;
+                    break;
+                case '>':
+                    timeout += 1000;
+                    consoleSpeed = 100;
+                    text = symbol;
                     break;
                 case '|':
                     timeout += 1000;
@@ -113,10 +120,14 @@
                     text = symbol;
                     break;
             }
-            if(el.innerHTML.length > 1) {
-                el.innerHTML = el.innerHTML.substr(0, el.innerHTML.length-1) + text + "#";
-            } else {
-                el.innerHTML = symbol + "#";
+
+            if(text.length > 0) {
+
+                if(el.innerHTML.length > 1) {
+                    el.innerHTML = el.innerHTML.substr(0, el.innerHTML.length-1) + text + "#";
+                } else {
+                    el.innerHTML = symbol + "#";
+                }
             }
 
             setTimeout(chain.shift(), timeout);
