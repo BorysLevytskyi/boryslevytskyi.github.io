@@ -8,7 +8,7 @@
 
         var char = String.fromCharCode(e.charCode);
 
-        if(char.toLowerCase() == 'y' && isOn) {
+        if(e.keyCode == 13 && isOn) {
             stop();
             return;
         }
@@ -79,7 +79,7 @@
         "- CommandFramework\n" +
         "Nuget package. NET Library that allows to create rich command line interface in a declarative way using attributes.\n" +
         "\n" +
-        "To exit blade runner console press Y" +
+        "To exit blade runner console press [Enter]" +
         "^" }
     ];
 
