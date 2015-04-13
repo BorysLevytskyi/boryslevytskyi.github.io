@@ -8,12 +8,12 @@
 
         var char = String.fromCharCode(e.charCode);
 
-        if(e.keyCode == 13 && isOn) {
+        if((e.keyCode == 13 || e.keyCode == 27) && isOn) {
             stop();
             return;
         }
 
-        if(char.toLocaleLowerCase() == 'b') {
+        if(!isOn && char.toLocaleLowerCase() == 'b') {
             bladeRunner();
         }
 
@@ -29,7 +29,7 @@
         setTimeout(function() {
             cover.classList.add('on');
             setTimeout(function() {
-                photo.classList.add('on');
+                photo.classList.add('on50');
             }, 5000)
         }, 100);
 
@@ -42,7 +42,7 @@
         isOn = false;
         cover.style.display = 'none';
         cover.classList.remove('on');
-        photo.classList.remove('on')
+        photo.classList.remove('on50');
         document.querySelector('.console').innerHTML = '';
         audio.pause();
     }
@@ -54,16 +54,22 @@
         "Initializing shell|.|.|.\n" +
         "Initialization completed.\n" +
         "\n" +
+        "Login:\n" +
+        ">r.deckard\n" +
+        "Password:\n" +
+        ">***********\n" +
+        "|\n" +
         "Connecting to server|.|.|.\n" +
         "Connected.\n" +
         "\n" +
+        "Welcome, officer Deckard.\n" +
         "Ready.\n" +
         "\n" +
-        ">search --name Borys Levytskyi\n" +
+        ">seatyj<<<rch Borys Levytskyi\n" +
         "Searching|.|.|.\n" +
         "Search completed. Results found: 1\n" +
         "\n" +
-        ">show --about\n" +
+        ">about\n" +
         "\n|" +
         "Name: Borys Levytskyi\n" +
         "Gender: Male\n" +
@@ -74,7 +80,7 @@
         "\n" +
         "Ready.\n" +
         "\n" +
-        ">show --projects\n" +
+        ">show projects\n" +
         "\n" +
         "Projects:\n" +
         "\n" +
@@ -84,7 +90,13 @@
         "- CommandFramework\n" +
         "Nuget package. NET Library that allows to create rich command line interface in a declarative way using attributes.\n" +
         "\n" +
-        "Press [Enter] to exit.^";
+        "Ready.\n" +
+        "\n" +
+        "> question \"am i a human or a replicant?|...|||" +
+        "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" +
+        "exit\n" +
+        "\n" +
+        "Press [Enter] to exit. ^";
 
 
     function startConsole() {
@@ -103,44 +115,43 @@
 
         while(typeof (char = symbols.shift()) !== "undefined")
         {
-            chain.push(type(char, el, chain));
+            chain.push(sendChar(char, el, chain));
         }
 
         setTimeout(chain.shift(), 50);
     }
 
-    function type(symbol, el, chain) {
+    function sendChar(symbol, consoleElement, chain) {
         return function (){
             var text = '', timeout = consoleSpeed;
-            switch (symbol) {
-                case '\n':
-                    text = "<br/>";
-                    consoleSpeed = 10;
-                    break;
-                case '>':
-                    timeout += 500;
-                    consoleSpeed = 100;
-                    text = '> ';
-                    break;
-                case '|':
-                    timeout += 1000;
-                    break;
-                case '^':
-                    el.innerHTML = el.innerHTML.replace(/\#$/, '');
-                    return;
-                default:
-                    text = symbol;
-                    break;
-            }
+            var html = consoleElement.innerHTML;
+            html = html.replace(/\#$/, '');
 
-            if(text.length > 0) {
-
-                if(el.innerHTML.length > 1) {
-                    el.innerHTML = el.innerHTML.substr(0, el.innerHTML.length-1) + text + "#";
-                } else {
-                    el.innerHTML = symbol + "#";
+                switch (symbol) {
+                    case '\n':
+                        html += "<br/>";
+                        consoleSpeed = 10;
+                        break;
+                    case '>':
+                        timeout += 500;
+                        consoleSpeed = 100;
+                        html += '> ';
+                        break;
+                    case '|':
+                        timeout += 1000;
+                        break;
+                    case '<':
+                        html = html.substr(0, html.length-1);
+                        break;
+                    case '^':
+                        return;
+                    default:
+                        html += symbol;
+                        break;
                 }
-            }
+
+                html += '#';
+                consoleElement.innerHTML = html;
 
             setTimeout(chain.shift(), timeout);
         }

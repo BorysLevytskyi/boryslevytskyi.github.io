@@ -31,7 +31,7 @@ img.icon { width: 16px; height: 16px; vertical-align: middle}
 }
 
 .console {
-    width: 400px;
+    width: 700px;
     font-family: monospace;
     color: #3feede;
     position: absolute; left: 10px; bottom: 10px;
@@ -48,6 +48,10 @@ img.icon { width: 16px; height: 16px; vertical-align: middle}
 
 .on {
     opacity: 1;
+}
+
+.on50 {
+    opacity: 0.5;
 }
 
 .off {
