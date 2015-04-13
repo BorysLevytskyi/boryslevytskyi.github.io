@@ -33,12 +33,13 @@ img.icon { width: 16px; height: 16px; vertical-align: middle}
 .console {
     width: 400px;
     font-family: monospace;
-    color: lightgreen;
-    position: absolute; left: 10x; top: 10px;
+    color: #3feede;
+    position: absolute; left: 10px; top: 10px;
 }
 
 .photo {
     position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+    font-weight: bold;
     background: url(../img/bladerunner.jpg);
     opacity: 0;
     transition: opacity 20s ease-in-out;

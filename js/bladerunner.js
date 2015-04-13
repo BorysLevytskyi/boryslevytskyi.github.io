@@ -34,10 +34,9 @@
             }, 5000)
         }, 100);
 
-
         audio.play();
 
-        setTimeout(startConsole, 3000);
+        setTimeout(startConsole, 5000);
     }
 
     function stop() {
@@ -45,21 +44,32 @@
         cover.style.display = 'none';
         cover.classList.remove('on');
         photo.classList.remove('on')
+        document.querySelector('.console').innerHTML = '';
         audio.pause();
     }
 
     var consoleText = [
         { text: "> search --name Borys Levytskyi\n" +
-        "Searhing||.||.||.\n" +
-        "\n" +
-        "Results found: 1" +
+        "Searhing|.|.|.\n" +
+        "Search completed\n|" +
+        "Results found: 1\n|" +
         "\n|" +
-        "display --first-result\n" +
+        "> show --about\n" +
         "\n|" +
         "Borys Levytsky: Full Stack .NET Developer|\n" +
         "Works in Epam Systems as Senior .NET developer\n" +
+        "> show --project\n" +
         "\n|" +
-        "Over 8 years of expirience"}
+        "\n|" +
+        "Projects:\n|" +
+        "\n" +
+        "http://biwtwisecmd.com\n" +
+        "Helps better understand how bitwise operations are pefromed by displaying bytes in a way you can actually see what is going on there during AND, OR, XOR or shift operations.\n" +
+        "\n" +
+        "CommandFramework\n" +
+        ".NET Library that allows to create rich command line interface in a declarative way using attributes.\n" +
+        "\n" +
+        "> clear^" }
     ];
 
     function startConsole() {
@@ -96,6 +106,9 @@
                 case '|':
                     timeout += 1000;
                     break;
+                case '^':
+                    el.innerHTML = el.innerHTML.replace(/\#$/, '');
+                    return;
                 default:
                     text = symbol;
                     break;
