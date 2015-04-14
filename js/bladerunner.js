@@ -31,12 +31,12 @@
             cover.classList.add('on');
             setTimeout(function() {
                 photo.classList.add('on50');
+                setTimeout(startConsole, 10000);
             }, 5000)
         }, 100);
 
         audio.play();
 
-        setTimeout(startConsole, 5000);
     }
 
     function stop() {
