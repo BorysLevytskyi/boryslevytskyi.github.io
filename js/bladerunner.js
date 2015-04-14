@@ -1,4 +1,6 @@
 (function(){
+    console.log('Press b to activate blade runner mode.')
+
     var audio = document.getElementById('audio');
     var cover = document.querySelector('.bladerunner');
     var photo = document.querySelector('.bladerunner .photo');
@@ -16,7 +18,6 @@
         if(!isOn && char.toLocaleLowerCase() == 'b') {
             bladeRunner();
         }
-
     });
 
     function bladeRunner() {
@@ -59,7 +60,7 @@
         "Password:\n" +
         ">***********\n" +
         "|\n" +
-        "Connecting to server|.|.|.\n" +
+        "Connecting to the server|.|.|.\n" +
         "Connected.\n" +
         "\n" +
         "Welcome, officer Deckard.\n" +
@@ -69,12 +70,12 @@
         "Searching|.|.|.\n" +
         "Search completed. Results found: 1\n" +
         "\n" +
-        ">about\n" +
+        ">profile\n" +
         "\n|" +
         "Name: Borys Levytskyi\n" +
         "Gender: Male\n" +
         "Location: Kiev, Ukraine\n" +
-        "Occupation: Works in Epam Systems as Senior .NET developer\n" +
+        "Occupation: Works in Epam Systems as a Senior .NET developer\n" +
         "GitHub: https://github.com/BorysLevytskyi\n" +
         "LinkedIn Profile: https://www.linkedin.com/in/blevitsky\n" +
         "\n" +
